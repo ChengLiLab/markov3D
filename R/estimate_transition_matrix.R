@@ -1,6 +1,6 @@
 EstimateTransitionMat <- function(ice.matrix, distance.matrix,
-                                  method = 'binomial',
-                                  t = 1e-3, distance_scale = 1) {
+  method = 'binomial',
+  t = 1e-3, distance_scale = 1) {
   #' estimate transition matrix from distance matrix
   #'
   #' @param ice.matrix Matrix ICE normalized matrix.
@@ -28,11 +28,11 @@ EstimateTransitionMat <- function(ice.matrix, distance.matrix,
 }
 
 
-DistanceCounts <- function(hic_mat, resolution) {
+distance_counts <- function(hic_mat, resolution) {
   #' Transform Hi-C full matrix.
   #' @param hic_mat matrix, hic full matrix
   #' @param resolution int, the matrix's resolution
-  #' @return a data.table with two columns. The first column is the linear 
+  #' @return a data.table with two columns. The first column is the linear
   #' genomic distance between two bins and the second is the number of counts
   #' mapped.
   counts_dist <- NULL
@@ -55,18 +55,16 @@ DistanceCounts <- function(hic_mat, resolution) {
 }
 
 
-PowerLawFitting <- function(dt) {
+power_law_fitting <- function(dt) {
   #' Fit a power law function between the linear genomic distance and counts
   #' @param dt data.table, the first column is genomic distance and the second
   #' is counts
   #' @return the coefficient of the power law function
-  
+
   # remove 0
   dt <- dt + 1
-  
+
   # fit the model and return the coefficient
   power_model <- lm(log(dt[[1]]) ~ log(dt[[2]]))
   return(power_model$coefficients[2])
 }
-
-

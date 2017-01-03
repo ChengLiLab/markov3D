@@ -1,0 +1,20 @@
+Package: markov3d
+Type: Package
+Title: Compute Steady-state Distribution from Hi-C
+Version: 0.1.0
+Author: Yinan Wang
+Maintainer: Yinan Wang <yinan.wang@pku.edu.cn>
+Description: Compute Steady-state Distribution from genome 3D structure
+    derived from Hi-C. This package also includes functions to process Hi-C,
+    ChIP-seq, DNase-seq and FAIRE-seq data.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: data.table,
+    dplyr,
+    ggplot2,
+    RPostgreSQL,
+    GenomicRanges,
+    IRanges,
+    HiTC,
+    igraph
